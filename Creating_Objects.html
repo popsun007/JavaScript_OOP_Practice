@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <title>Creating Objects Part1</title>
+        <script>
+        	function vehicleConstructor(name, wheels, num)
+        	{
+        		var vehicle = {}
+        		vehicle.name = name;
+        		vehicle.wheels = wheels;
+        		vehicle.number_of_passenger = num;
+        		vehicle.makeNoise = function()
+        			{
+        				console.log("whatever");
+        			}
+        		return vehicle;
+        	}
+        	var Bike = vehicleConstructor("fly_biking", 2, 1);
+        	Bike.makeNoise = function ()
+        		{
+        			console.log("ring ring");
+        		}
+        	var Sedan = vehicleConstructor("Sedan", 4, 5);
+        	Sedan.makeNoise = function ()
+        		{
+        			console.log("Honk Honk!")
+        		}
+        	var Bus = vehicleConstructor("Bus", 8, 20);
+        	Bus.pickUpPassengers = function (num)
+        		{
+        			Bus.number_of_passenger += num;
+        		}
+  //       function Ninja(name, age, prevOccupation) { 
+		//   // PUBLIC ATTRIBUTES DECLARED HERE
+		//   this.name = name;
+		//   this.age = age;
+		//   this.prevOccupation = prevOccupation
+
+		//   // PRIVATE VARIABLE DECLARED HERE
+		//   var privateVar = "This is a private variable";
+		//   // PRIVATE METHOD DECLARED HERE
+		//   var haha = this;
+		//   var privateMethod = function() {
+		//     console.log("this is a private method for " + haha.name); // What will print here?
+		//   } 
+
+		//   // PUBLIC METHODS DECLARED HERE
+		//   this.introduce = function() {
+		//     console.log("Hi my name is " + this.name + ". I used to be a " + this.prevOccupation + " and now I'm a Ninja!");
+		//     privateMethod();             // this works since it is a scope that can access privateMethod!
+		//     console.log(privateVar);     // this works too!
+		//   }
+		// }
+		// var Andrew = new Ninja("Andrew", 24, "TFA Teacher");
+		// Andrew.introduce();
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>

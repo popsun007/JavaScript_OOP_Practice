@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="utf-8">
+        <title>Creating Objects Part1</title>
+        <script>
+        	function VehicleConstructor(name, wheels, num, speed)
+        	{
+        		this.name = name;
+        		this.wheels = wheels;
+        		this.number_of_passenger = num;
+                this.speed = speed;
+        		this.makeNoise = function()
+        			{
+        				console.log("whatever");
+        			}
+                var distance_travelled = 0;
+                var self = this;
+                var updateDistanceTravelled = function()
+                    {
+                        distance_travelled += self.speed;
+                        console.log("Distance has been travelled: " + distance_travelled);
+                    }
+                this.move = function ()
+                    {
+                        updateDistanceTravelled();
+                        this.makeNoise();
+                    }
+                this.checkMiles = function ()
+                    {
+                        console.log(distance_travelled);
+                    }
+
+            }
+            var Bike = new VehicleConstructor("fly_biking", 2, 1, 20);
+            Bike.makeNoise = function ()
+                {
+                    console.log("ring ring");
+                }
+            var Sedan = new VehicleConstructor("Sedan", 4, 5, 160);
+            Sedan.makeNoise = function ()
+                {
+                    console.log("Honk Honk!")
+                }
+            var Bus = new VehicleConstructor("Bus", 8, 20, 130);
+            Bus.pickUpPassengers = function (num)
+                {
+                    Bus.number_of_passenger += num;
+                }
+            var Cat = function Cat( cat_name ) {
+                this.name = cat_name;
+                this.getName = function() {
+                    return this.name;
+                  };
+            }
+            var copper = new Cat('copper');
+            //adding a method to the cat prototype
+            Cat.prototype.sayHi = function(){
+              console.log('meow');
+            };
+            copper.sayHi();
+            //adding properties to the cat prototype
+            Cat.prototype.numLegs = 4;
+            var muffin = new Cat('muffin');
+            var biscuit = new Cat('biscuit');
+            console.log(muffin, biscuit);
+            //we access prototype properties the same way as we would access 'own' properties
+            muffin.sayHi();
+            biscuit.sayHi();
+
+            console.log(muffin.numLegs);
+        </script>
+    </head>
+    <body>
+        
+    </body>
+</html>
